@@ -6,6 +6,13 @@ A collection of SQL scripts designed to assist with database management, data an
 
 This repository contains reusable SQL queries that automate common database inspection and analysis tasks.
 
+
+## Background & Development Approach
+
+The SQL scripts in this repository are inspired by actual challenges and problems encountered during database-related tasks. Each tool was developed to explore practical solutions, simplify repetitive processes, and improve database analysis and data quality assessment.
+
+AI tools were used to assist in generating and refining the queries, with the goal of addressing specific problems and achieving practical results.
+
 ## Available Tools
 
 | Tool | Description | ReadMe |
