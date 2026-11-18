@@ -9,7 +9,7 @@ This repository contains reusable SQL queries that automate common database insp
 ## Available Tools
 
 | Tool | Description | ReadMe |
-|---|---|
+|---|---|---|
 | [NULL Value Scanner](./null_value_scanner.sql) | Scans database tables and identifies columns containing NULL values, including their counts and percentages. | [NULL Value Scanner Documentation](./readme_null_value_scanner.md) |
 
 ## Usage
