@@ -42,6 +42,8 @@ A PostgreSQL script that dynamically scans database base tables and identifies c
 - `null_count` – Number of NULL values.
 - `null_percentage` – Percentage of NULL values.
 
+<img width="686" height="412" alt="image" src="https://github.com/user-attachments/assets/1f3aa543-fa8f-426e-86b9-cca34ac97fe6" />
+
 ### 2. TABLES THAT COULD NOT BE SCANNED
 - `table_schema` – Schema name.
 - `table_name` – Affected table.
@@ -51,6 +53,8 @@ A PostgreSQL script that dynamically scans database base tables and identifies c
 Originally written for PostgreSQL, this query can be adapted to other SQL dialects and database systems.
 
 Simply ask an AI tool of your choice to modify the query to make it compatible with your preferred SQL dialect or database system. Always review and test the adapted version before execution.
+
+<img width="524" height="531" alt="image" src="https://github.com/user-attachments/assets/7d24f510-0a2d-4bcf-bea8-704b349f18a9" />
 
 ## Limitations & Notes
 - Scans base tables only; views are excluded.
