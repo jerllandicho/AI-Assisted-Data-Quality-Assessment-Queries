@@ -55,7 +55,7 @@ Originally written for PostgreSQL, this query can be adapted to other SQL dialec
 Simply ask an AI tool of your choice to modify the query to make it compatible with your preferred SQL dialect or database system. Always review and test the adapted version before execution.
 
 *As proof that this works, I attached a MySQL version of the output below. I haven’t included that script so try tweaking it yourself with an AI tool and test the result*
-<img width="524" height="531" alt="image" src="https://github.com/user-attachments/assets/7d24f510-0a2d-4bcf-bea8-704b349f18a9" />
+<img width="610" height="614" alt="image" src="https://github.com/user-attachments/assets/47975925-48c4-4919-bdf6-b6324e962889" />
 
 ## Limitations & Notes
 - Scans base tables only; views are excluded.
