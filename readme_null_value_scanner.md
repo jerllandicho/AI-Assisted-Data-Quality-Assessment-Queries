@@ -54,6 +54,7 @@ Originally written for PostgreSQL, this query can be adapted to other SQL dialec
 
 Simply ask an AI tool of your choice to modify the query to make it compatible with your preferred SQL dialect or database system. Always review and test the adapted version before execution.
 
+*As proof that this works, I attached a MySQL version of the query below*
 <img width="524" height="531" alt="image" src="https://github.com/user-attachments/assets/7d24f510-0a2d-4bcf-bea8-704b349f18a9" />
 
 ## Limitations & Notes
