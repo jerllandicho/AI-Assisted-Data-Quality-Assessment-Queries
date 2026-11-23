@@ -1,0 +1,102 @@
+# Database-Wide Duplicate Record Scanner (PostgreSQL)
+
+## Description
+A PostgreSQL script that dynamically scans database base tables and identifies duplicate records based on all columns. It calculates the number of duplicate groups and excess duplicate rows to help assess database integrity and data quality. It also provides a separate query to retrieve the records belonging to duplicate groups in a specified table.
+
+## Features
+- Automatically identifies base tables across accessible schemas.
+- Scans individual tables for duplicate records using all available columns.
+- Identifies duplicate groups within each table.
+- Calculates the number of duplicate groups and excess duplicate rows.
+- Retrieves duplicate records from a specified table.
+- Displays the number of occurrences of each duplicate record.
+- Stores scanning results in temporary tables.
+- Sorts scanning results by schema and table name.
+
+## How It Works
+The script consists of two sections:
+
+### 1. DUPLICATE RECORD SCANNER
+1. Retrieves base tables from `information_schema`.
+2. Identifies all columns of each table.
+3. Dynamically generates SQL expressions to group records based on all columns.
+4. Identifies groups containing more than one identical record.
+5. Calculates the number of duplicate groups and excess duplicate rows.
+6. Stores the results in a temporary table.
+
+### 2. DUPLICATE RECORD DETAILS
+1. Identifies the columns of the specified table.
+2. Dynamically generates a SQL expression using all available columns.
+3. Uses a window function to count identical record occurrences.
+4. Retrieves all records belonging to duplicate groups.
+5. Displays the total number of occurrences in the `duplicate_count` column.
+
+**Definitions:**
+
+- `Duplicate Groups` – Number of distinct sets of identical records.
+- `Excess Duplicate Rows` – Total number of records exceeding the first occurrence in each duplicate group.
+- `Duplicate Count` – Total number of times an identical record appears in the selected table.
+
+**Formula:**
+
+`Excess Duplicate Rows = SUM(Duplicate Group Count - 1)`
+
+## Instructions
+1. Connect to the target PostgreSQL database.
+2. Open `duplicate_record_scanner_and_details.sql` in your SQL client.
+3. To execute only the database-wide scanner, run the script from the beginning up to and including the first SELECT query (**DUPLICATE RECORD SCANNER**).
+4. Review the results to identify tables containing duplicate records.
+5. To retrieve duplicate records from a specific table, update the schema and table names in the second section (**DUPLICATE RECORD DETAILS**).
+6. Execute the second section to retrieve the corresponding duplicate records.
+
+**Important:**
+- Execute the scanning block and its result query within the same database session because the temporary tables are session-specific.
+- The duplicate record details section is optional and can be executed separately.
+- If executing the entire script, make sure to update the schema and table names in the second section before execution.
+
+## Output
+
+**Sample Data:** The table shown below was generated using AI for demonstration and testing purposes. It contains intentionally duplicated records to demonstrate how the script identifies and retrieves duplicate records.
+
+### 1. DUPLICATE REPORT
+- `table_schema` – Schema name.
+- `table_name` – Table containing duplicate records.
+- `duplicate_groups` – Number of distinct groups of identical records.
+- `duplicate_rows` – Total number of excess duplicate rows, excluding the first occurrence in each group.
+
+Tables without duplicate groups are excluded from the final report.
+
+<img width="440" height="88" alt="image" src="https://github.com/user-attachments/assets/0f2d1c91-a37e-427d-b9cc-f2a3d9ab78a8" />
+
+### 2. DUPLICATE RECORD DETAILS
+- Original table columns – Values from the selected table.
+- `duplicate_count` – Total number of times an identical record appears in the selected table.
+
+This output includes all records belonging to duplicate groups, not just the excess duplicate rows.
+
+<img width="590" height="165" alt="image" src="https://github.com/user-attachments/assets/231682c2-89b0-4c64-80f6-1d66ce67cccd" />
+<img width="827" height="139" alt="image" src="https://github.com/user-attachments/assets/a3346189-d78b-4354-9ff3-8f8dd9ea6286" />
+
+## Compatibility
+Originally written for PostgreSQL, this script can be adapted to other SQL dialects and database systems.
+
+Simply ask an AI tool of your choice to modify the query to make it compatible with your preferred SQL dialect or database system. Always review and test the adapted version before execution.
+
+## Limitations & Notes
+- Scans base tables only; views are excluded.
+- Compares records using all columns within each table.
+- Excludes specified system, temporary, and TOAST schemas.
+- Only tables containing duplicate groups appear in the database-wide report.
+- Requires sufficient database access privileges.
+- Large databases and tables may require considerable execution time and resources.
+- Tables without columns or tables that cannot be accessed may not produce results.
+- The duplicate record details query works on one specified table at a time.
+- The schema and table names in the duplicate record details section must be manually specified.
+- Uses temporary tables that disappear when the database session ends.
+- Does not modify, delete, or clean existing database records.
+- Duplicate records are identified based on exact equality across all columns.
+- Records that differ in even one column are not considered duplicates.
+- The database-wide scanner calculates excess duplicate rows, while the details query retrieves every record belonging to duplicate groups.
+
+## Disclaimer
+This script is intended for database inspection, profiling, and duplicate record detection. It does not automatically remove, merge, or modify duplicate records.
