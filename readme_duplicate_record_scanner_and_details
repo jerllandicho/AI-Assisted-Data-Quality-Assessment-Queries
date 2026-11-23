@@ -66,16 +66,11 @@ The script consists of two sections:
 
 Tables without duplicate groups are excluded from the final report.
 
-<img width="440" height="88" alt="image" src="https://github.com/user-attachments/assets/0f2d1c91-a37e-427d-b9cc-f2a3d9ab78a8" />
-
 ### 2. DUPLICATE RECORD DETAILS
 - Original table columns – Values from the selected table.
 - `duplicate_count` – Total number of times an identical record appears in the selected table.
 
 This output includes all records belonging to duplicate groups, not just the excess duplicate rows.
-
-<img width="590" height="165" alt="image" src="https://github.com/user-attachments/assets/231682c2-89b0-4c64-80f6-1d66ce67cccd" />
-<img width="827" height="139" alt="image" src="https://github.com/user-attachments/assets/a3346189-d78b-4354-9ff3-8f8dd9ea6286" />
 
 ## Compatibility
 Originally written for PostgreSQL, this script can be adapted to other SQL dialects and database systems.
