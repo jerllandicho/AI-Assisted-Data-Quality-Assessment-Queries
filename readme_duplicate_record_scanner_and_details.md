@@ -67,7 +67,7 @@ The script consists of two sections:
 
 Tables without duplicate groups are excluded from the final report.
 
-<img width="440" height="88" alt="image" src="https://github.com/user-attachments/assets/a3c83754-7100-4ced-9a39-330d16e33e54" />
+<img width="452" height="87" alt="image" src="https://github.com/user-attachments/assets/acf48988-0a10-4fa8-ab1e-dfdda40bb10f" />
 
 ### 2. DUPLICATE RECORD DETAILS
 - Original table columns – Values from the selected table.
